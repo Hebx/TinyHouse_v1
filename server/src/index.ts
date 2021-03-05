@@ -50,6 +50,18 @@ app.post("/create-booking", (req, res) => {
   return res.send("failed to create a booking");
 });
 
+app.post("/favorite-listing", (req, res) => {
+  const id: string = req.body.id;
+
+  for (let i = 0; i < listings.length; i++) {
+    if (listings[i].id === id) {
+      listings[i].favorite = !listings[i].favorite;
+      return res.send(listings[i]);
+    }
+  }
+  return res.send("failed to favorite a listing");
+});
+
 app.listen(port);
 
 console.log(`[app] : http://localhost:${port}`);
