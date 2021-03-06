@@ -11,11 +11,21 @@ export const typeDefs = gql`
     numOfBeds: Int!
     numOfBaths: Int!
     rating: Float!
+    numOfBookings: Int!
+  }
+  type Booking {
+    id: ID!
+    title: String!
+    image: String!
+    address: String!
+    timestamp: String!
   }
   type Query {
+    bookings: [Booking!]!
     listings: [Listing!]!
   }
   type Mutation {
+    createBooking(id: ID!, timestamp: String!): Booking
     deleteListing(id: ID!): Listing
   }
 `;

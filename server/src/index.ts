@@ -11,3 +11,4 @@ server.applyMiddleware({ app, path: "/api" });
 app.listen(port);
 
 console.log(`[app] : http://localhost:${port}`);
+console.log(`[timestamp]`, new Date().toLocaleString());
