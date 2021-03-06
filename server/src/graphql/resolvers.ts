@@ -46,6 +46,15 @@ export const resolvers: IResolvers = {
       }
       throw new Error("failed to create a booking");
     },
+    favoriteListing: (_root: undefined, { id }: { id: string }) => {
+      for (let i = 0; i < listings.length; i++) {
+        if (listings[i].id === id) {
+          listings[i].favorite = !listings[i].favorite;
+          return listings[i];
+        }
+      }
+      throw new Error("failed to favorite a listing");
+    },
   },
   Listing: {
     numOfBookings: (listing: Listing): number => listing.bookings.length,
