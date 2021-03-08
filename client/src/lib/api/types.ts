@@ -1,5 +1,4 @@
 interface Listing {
-
   id: string;
   title: string;
   image: string;
@@ -11,5 +10,13 @@ interface Listing {
   rating: number;
 }
 export type ListingsData = {
-  listings: Listing[]
+  listings: Listing[];
+};
+
+export interface DeleteListingData {
+  deleteListing: Listing;
+}
+
+export interface DeleteListingVariables {
+  id: string;
 }
